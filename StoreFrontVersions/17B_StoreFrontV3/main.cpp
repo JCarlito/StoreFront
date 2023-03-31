@@ -19,7 +19,7 @@ using namespace std;
 const int SIZE = 5;
 
 struct Inventory {
-    string name; // Name of the item
+    string itemName; // Name of the item
     float cost; // Cost of the item
     int count; // Number of items in inventory
     bool status; // Active or not active
@@ -67,7 +67,7 @@ int main(int argc, char** argv) {
 void fillInventory(vector<Inventory>& inventory) {
     Inventory newInventory;
     for (int i = 0; i < SIZE; i++) {
-        newInventory.name = "Inventory " + to_string(i + 1);
+        newInventory.itemName = "Inventory " + to_string(i + 1);
         newInventory.cost = (rand() % 100) + 1;
         newInventory.count = (rand() % 100) + 1.0;
         newInventory.status = true;
@@ -79,7 +79,7 @@ void displayInventory(const vector<Inventory>& inventory) {
     cout << fixed << setprecision(2);
     cout << "INVENTORY" << endl;
     for (int i = 0; i < SIZE; i++) {
-        cout << "Item Name: " << inventory[i].name << endl;
+        cout << "Item Name: " << inventory[i].itemName << endl;
         cout << "Item Cost: $" << inventory[i].cost << endl;
         cout << "Item Inventory: " << inventory[i].count << endl;
         cout << "Item Status: " << (inventory[i].status == true ? "True" : "False");
@@ -104,7 +104,7 @@ void fillShoppingCart(ShoppingCart& cart, vector<Inventory>& inventory) {
     for (int i = 0; i < 3; i++) {
         emptyInventory(inventory, randomItem);
         if (inventory[randomItem].status) {
-            tempCartItem.itemName = inventory[randomItem].name;
+            tempCartItem.itemName = inventory[randomItem].itemName;
             randomAmount = inventory[randomItem].count - randomAmount < 0 ?
                     inventory[randomItem].count : randomAmount;
             inventory[randomItem].count -= randomAmount;

@@ -2,9 +2,9 @@
  * File:   main.cpp
  * Author: Josh Carlito
  *
- * Created on March 28, 2023, 4:01 PM
+ * Created on March 31, 2023, 1:30 PM
  * Purpose: Create a simple interface with no files and completely procedural
- * Version: 4, Implement SignIn Interface
+ * Version: 5, Create UI
  */
 
 #include "StoreFront.h"
@@ -20,73 +20,34 @@ void setCart(Customer& customer, ShoppingCart cart);
 
 int main(int argc, char** argv) {
     srand(static_cast<unsigned int> (time(0)));
-    SignIn interface;
+    Customer customer;
+    vector<Inventory> items;
+    ShoppingCart cart;
 
-    interface.displayMenu();
-    while (!interface.getExitSignIn()) {
-        if (interface.getUserInput() == 'u') {
-            // Create a normal user account
-            cout << "Register for a Normal User account" << endl << endl;
-            interface.setUsername();
-            interface.setPassword();
-            // Store information to file
-            interface.writeBinary();
-            interface.setExitSignIn(true);
-        } else if (interface.getUserInput() == 'a') {
-            // Create an admin account
-            cout << "Register for Admin account" << endl << endl;
-            interface.validateAdminKey();
-            interface.setUsername();
-            interface.setPassword();
-            // Store information to file
-            interface.writeBinary();
-            interface.setExitSignIn(true);
-        } else {
-            // Sign-in to an existing account
-            cout << "Sign-In" << endl << endl;
-            interface.setUsername();
-            interface.setPassword();
-            interface.validateUser();
-            // If no account is found display an error and prompt user
-            // to create an account or try again
-            if (!interface.getExitSignIn()) {
-                // The user only gets 5 attempts
-                interface.displayError();
-            }
-        }
-    }
+    setUsername(customer, "test");
+    fillInventory(items);
+    fillShoppingCart(cart, items);
+    setCart(customer, cart);
+    displayCart(customer.cart, customer.username);
 
-    if (interface.getAdminStatus()) {
-        cout << "Admin User" << endl;
-    } else {
-        cout << "Normal User" << endl << endl;
-        Customer customer;
-        setUsername(customer, interface.getUsername());
-        vector<Inventory> items;
-        ShoppingCart cart;
-        fillInventory(items);
-        fillShoppingCart(cart, items);
-        setCart(customer, cart);
-        displayCart(customer.cart, customer.username);
-    }
 
 
 
     return 0;
 }
 
-void setUsername(Customer& customer, string username){
+void setUsername(Customer& customer, string username) {
     customer.username = username;
 }
 
-void setCart(Customer& customer, ShoppingCart cart){
+void setCart(Customer& customer, ShoppingCart cart) {
     customer.cart = cart;
 }
 
 void fillInventory(vector<Inventory>& inventory) {
     Inventory newInventory;
     for (int i = 0; i < SIZE; i++) {
-        newInventory.itemName = "Inventory " + to_string(i + 1);
+        newInventory.name = "Inventory " + to_string(i + 1);
         newInventory.cost = (rand() % 100) + 1;
         newInventory.count = (rand() % 100) + 1.0;
         newInventory.status = true;
@@ -98,7 +59,7 @@ void displayInventory(const vector<Inventory>& inventory) {
     cout << fixed << setprecision(2);
     cout << "INVENTORY" << endl;
     for (int i = 0; i < SIZE; i++) {
-        cout << "Item Name: " << inventory[i].itemName << endl;
+        cout << "Item Name: " << inventory[i].name << endl;
         cout << "Item Cost: $" << inventory[i].cost << endl;
         cout << "Item Inventory: " << inventory[i].count << endl;
         cout << "Item Status: " << (inventory[i].status == true ? "True" : "False");
@@ -123,7 +84,7 @@ void fillShoppingCart(ShoppingCart& cart, vector<Inventory>& inventory) {
     for (int i = 0; i < 3; i++) {
         emptyInventory(inventory, randomItem);
         if (inventory[randomItem].status) {
-            tempCartItem.itemName = inventory[randomItem].itemName;
+            tempCartItem.itemName = inventory[randomItem].name;
             randomAmount = inventory[randomItem].count - randomAmount < 0 ?
                     inventory[randomItem].count : randomAmount;
             inventory[randomItem].count -= randomAmount;

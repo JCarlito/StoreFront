@@ -39,7 +39,7 @@ struct UserInfo {
 
 
 struct Inventory {
-    string itemName; // Name of the item
+    string name; // Name of the item
     float cost; // Cost of the item
     int count; // Number of items in inventory
     bool status; // Active or not active
