@@ -8,7 +8,7 @@
  * File:   StoreFront.h
  * Author: Josh Carlito
  *
- * Created on March 28, 2023, 4:17 PM
+ * Created on April 4, 2023, 8:30 PM
  */
 
 #ifndef STOREFRONT_H
@@ -28,20 +28,21 @@ using namespace std;
 
 const int USERNAME_LENGTH = 12;
 const int PASSWORD_LENGTH = 12;
-const int SIZE = 5;
+const int SIZE = 8;
 
 struct UserInfo {
     string username;
     string password;
+    bool status;
     bool adminFlag;
 };
 
 
 
 struct Inventory {
-    string name; // Name of the item
+    string itemName; // Name of the item
     float cost; // Cost of the item
-    int count; // Number of items in inventory
+    int stock; // Number of items in inventory
     bool status; // Active or not active
 };
 
@@ -64,4 +65,5 @@ struct Customer {
 };
 
 #endif /* STOREFRONT_H */
+
 
