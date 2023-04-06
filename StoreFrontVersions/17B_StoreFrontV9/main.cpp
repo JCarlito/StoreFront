@@ -30,8 +30,8 @@ void readInventory(vector<Inventory>& items);
 bool comparePriceLowToHigh(const Inventory& item1, const Inventory& item2);
 void addToCart(ShoppingCart& cart, vector<Inventory>& inventory, string itemName, int quantity);
 void removeFromCart(ShoppingCart& cart, vector<Inventory>& inventory, string itemName, int quantity);
-void writeCustomerInformation();
-void readCustomerInformation();
+void writeCustomerInformation(Customer& customer);
+void readCustomerInformation(Customer& customer);
 
 int main(int argc, char** argv) {
     // Set random number seed
@@ -114,40 +114,44 @@ int main(int argc, char** argv) {
     //    }
     //    writeInventory(items);
 
-    displayStore(items);
-    displayStoreMenu();
-    cin >> customerInput;
-    while (customerInput != -1) {
-        cin.ignore();
-        cout << endl;
-        setUsername(customer, "Josh");
-        if (customerInput == 1) {
-            displayStore(items);
-        } else if (customerInput == 2) {
-            string itemName;
-            int quantity;
-            cout << "Enter the item name you wish to purchase: ";
-            getline(cin, itemName);
-            cout << "Enter how many you'd like to purchase: ";
-            cin >> quantity;
-            cin.ignore();
-            addToCart(cart, items, itemName, quantity);
-        } else if (customerInput == 3) {
-            setCart(customer, cart);
-            displayCart(customer.cart, customer.username);
-        } else if (customerInput == 4) {
-            string itemName;
-            int quantity;
-            cout << "Enter the item name you wish to remove: ";
-            getline(cin, itemName);
-            cout << "Enter how many you'd like to remove: ";
-            cin >> quantity;
-            cin.ignore();
-            removeFromCart(cart, items, itemName, quantity);
-        }
-        cout << "Enter next input: ";
-        cin >> customerInput;
-    }
+    //    displayStore(items);
+    //    displayStoreMenu();
+    //    cin >> customerInput;
+    //    while (customerInput != -1) {
+    //        cin.ignore();
+    //        cout << endl;
+    //        setUsername(customer, "Josh");
+    //        if (customerInput == 1) {
+    //            displayStore(items);
+    //        } else if (customerInput == 2) {
+    //            string itemName;
+    //            int quantity;
+    //            cout << "Enter the item name you wish to purchase: ";
+    //            getline(cin, itemName);
+    //            cout << "Enter how many you'd like to purchase: ";
+    //            cin >> quantity;
+    //            cin.ignore();
+    //            addToCart(cart, items, itemName, quantity);
+    //        } else if (customerInput == 3) {
+    //            setCart(customer, cart);
+    //            displayCart(customer.cart, customer.username);
+    //        } else if (customerInput == 4) {
+    //            string itemName;
+    //            int quantity;
+    //            cout << "Enter the item name you wish to remove: ";
+    //            getline(cin, itemName);
+    //            cout << "Enter how many you'd like to remove: ";
+    //            cin >> quantity;
+    //            cin.ignore();
+    //            removeFromCart(cart, items, itemName, quantity);
+    //        } else if (customerInput == 5){
+    //            writeCustomerInformation(customer);
+    //        }
+    //        cout << "Enter next input: ";
+    //        cin >> customerInput;
+    //    }
+    readCustomerInformation(customer);
+    displayCart(customer.cart, customer.username);
     return 0;
 }
 
@@ -155,21 +159,67 @@ void writeCustomerInformation(Customer& customer) {
     fstream binaryCustomerInfoFile;
     char tempUsernameLength = 0;
     char tempItemNameLength = 0;
-    
-    
+
+
     binaryCustomerInfoFile.open("CustomerInfo.bin", ios::out | ios::binary);
-    if (!binaryCustomerInfoFile.is_open()){
+    if (!binaryCustomerInfoFile.is_open()) {
         cout << "Error opening file!" << endl;
         return;
     }
-    char tempUserNameLength = customer.username.size();
-    binaryCustomerInfoFile.write(&tempUserNameLength, sizeof(char));
-    binaryCustomerInfoFile.write(&customer.username[0], tempUserNameLength);s
+
+    binaryCustomerInfoFile.seekp(0, ios::beg);
+    tempUsernameLength = customer.username.size();
+    binaryCustomerInfoFile.write(&tempUsernameLength, sizeof (char));
+    binaryCustomerInfoFile.write(&customer.username[0], tempUsernameLength);
+    binaryCustomerInfoFile.write(
+            reinterpret_cast<char*> (&customer.cart.totalCost), sizeof (float));
+    binaryCustomerInfoFile.write(
+            reinterpret_cast<char*> (&customer.cart.totalItems), sizeof (int));
+    binaryCustomerInfoFile.write(
+            reinterpret_cast<char*> (&customer.cart.totalQuantity), sizeof (int));
+    for (auto& item : customer.cart.items) {
+        tempItemNameLength = item.itemName.size();
+        binaryCustomerInfoFile.write(&tempItemNameLength, sizeof (char));
+        binaryCustomerInfoFile.write(&item.itemName[0], tempItemNameLength);
+        binaryCustomerInfoFile.write(
+                reinterpret_cast<char*> (&item.quantity), sizeof (int));
+        binaryCustomerInfoFile.write(
+                reinterpret_cast<char*> (&item.cost), sizeof (float));
+    }
     binaryCustomerInfoFile.close();
 }
 
-void readCustomerInformation(C) {
-    
+void readCustomerInformation(Customer& customer) {
+    fstream binaryCustomerInfoFile;
+    char tempUsernameLength = 0;
+    char tempItemNameLength = 0;
+
+
+    binaryCustomerInfoFile.open("CustomerInfo.bin", ios::in | ios::binary);
+    if (!binaryCustomerInfoFile.is_open()) {
+        cout << "Error opening file!" << endl;
+        return;
+    }
+
+    binaryCustomerInfoFile.seekg(0, ios::beg);
+    while (binaryCustomerInfoFile.read(&tempUsernameLength, sizeof (char))) {
+        customer.username.resize(tempUsernameLength);
+        binaryCustomerInfoFile.read(&customer.username[0], tempUsernameLength);
+        binaryCustomerInfoFile.read(reinterpret_cast<char*> (&customer.cart.totalCost), sizeof (float));
+        binaryCustomerInfoFile.read(reinterpret_cast<char*> (&customer.cart.totalItems), sizeof (int));
+        binaryCustomerInfoFile.read(reinterpret_cast<char*> (&customer.cart.totalQuantity), sizeof (int));
+        customer.cart.items.resize(customer.cart.totalItems);
+        for (auto& item : customer.cart.items) {
+            binaryCustomerInfoFile.read(&tempItemNameLength, sizeof (char));
+            item.itemName.resize(tempItemNameLength);
+            binaryCustomerInfoFile.read(&item.itemName[0], tempItemNameLength);
+            binaryCustomerInfoFile.read(
+                    reinterpret_cast<char*> (&item.quantity), sizeof (int));
+            binaryCustomerInfoFile.read(
+                    reinterpret_cast<char*> (&item.cost), sizeof (float));
+        }
+    }
+    binaryCustomerInfoFile.close();
 }
 
 void writeInventory(vector<Inventory>& items) {
@@ -315,7 +365,7 @@ void setCart(Customer& customer, ShoppingCart cart) {
 void displayInventory(const vector<Inventory>& inventory) {
     cout << fixed << setprecision(2);
     cout << "INVENTORY" << endl;
-    for (int i = 0; i < SIZE; i++) {
+    for (int i = 0; i < inventory.size(); i++) {
         cout << "Item Name: " << inventory[i].itemName << endl;
         cout << "Item Cost: $" << inventory[i].cost << endl;
         cout << "Item Inventory: " << inventory[i].stock << endl;

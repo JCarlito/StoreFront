@@ -28,7 +28,6 @@ using namespace std;
 
 const int USERNAME_LENGTH = 12;
 const int PASSWORD_LENGTH = 12;
-const int SIZE = 8;
 
 struct UserInfo {
     string username;
