@@ -117,7 +117,7 @@ void displayInventory(const vector<Inventory>& inventory) {
 }
 
 void emptyInventory(vector<Inventory>& inventory, int item) {
-    if (inventory[item].stock == 0) {
+    if (inventory[item].stock <= 0) {
         inventory[item].status = false;
     }
 }
@@ -136,12 +136,13 @@ void fillShoppingCart(ShoppingCart& cart, vector<Inventory>& inventory) {
     if (inventory[randomItem].status) {
         tempCartItem.itemName = inventory[randomItem].itemName;
         index = findItem(cart, tempCartItem);
-        if (index != -1) {
+        if (index >= 0) {
             randomAmount = inventory[randomItem].stock - randomAmount < 0 ?
                     inventory[randomItem].stock : randomAmount;
-            inventory[index].stock -= randomAmount;
+            inventory[randomItem].stock -= randomAmount;
             cart.items[index].quantity += randomAmount;
             cart.items[index].cost += inventory[randomItem].cost * randomAmount;
+            emptyInventory(inventory, randomItem);
         } else {
             randomAmount = inventory[randomItem].stock - randomAmount < 0 ?
                     inventory[randomItem].stock : randomAmount;
@@ -149,6 +150,7 @@ void fillShoppingCart(ShoppingCart& cart, vector<Inventory>& inventory) {
             tempCartItem.quantity = randomAmount;
             tempCartItem.cost = inventory[randomItem].cost * randomAmount;
             cart.items.push_back(tempCartItem);
+            emptyInventory(inventory, randomItem);
         }
     } else {
         cout << endl;
@@ -164,13 +166,21 @@ void fillShoppingCart(ShoppingCart& cart, vector<Inventory>& inventory) {
 }
 
 int findItem(const ShoppingCart& cart, const CartItem& newItem) {
+    cout << "We are in find item" << endl;
     int index = 0;
     for (const auto& item : cart.items) {
         if (item.itemName == newItem.itemName) {
             return index;
+            cout << "We are in the loop in find item" << endl;
         }
         index++;
     }
+//    for (int i = 0; i < cart.items.size(); i++){
+//        if (cart.items[i].itemName == newItem.itemName){
+//            cout << "We are in the loop in find item" << endl;
+//            return i;
+//        }
+//    }
     return -1;
 }
 
