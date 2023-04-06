@@ -166,21 +166,13 @@ void fillShoppingCart(ShoppingCart& cart, vector<Inventory>& inventory) {
 }
 
 int findItem(const ShoppingCart& cart, const CartItem& newItem) {
-    cout << "We are in find item" << endl;
     int index = 0;
     for (const auto& item : cart.items) {
         if (item.itemName == newItem.itemName) {
             return index;
-            cout << "We are in the loop in find item" << endl;
         }
         index++;
     }
-//    for (int i = 0; i < cart.items.size(); i++){
-//        if (cart.items[i].itemName == newItem.itemName){
-//            cout << "We are in the loop in find item" << endl;
-//            return i;
-//        }
-//    }
     return -1;
 }
 
