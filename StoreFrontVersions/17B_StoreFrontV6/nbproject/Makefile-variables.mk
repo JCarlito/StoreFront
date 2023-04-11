@@ -17,11 +17,11 @@ CND_PACKAGE_PATH_Debug=dist/Debug/CLang-MacOSX/package/17bstorefrontv6.tar
 # Release configuration
 CND_PLATFORM_Release=Cygwin-Windows
 CND_ARTIFACT_DIR_Release=dist/Release/Cygwin-Windows
-CND_ARTIFACT_NAME_Release=17b_storefrontv5
-CND_ARTIFACT_PATH_Release=dist/Release/Cygwin-Windows/17b_storefrontv5
+CND_ARTIFACT_NAME_Release=17b_storefrontv6
+CND_ARTIFACT_PATH_Release=dist/Release/Cygwin-Windows/17b_storefrontv6
 CND_PACKAGE_DIR_Release=dist/Release/Cygwin-Windows/package
-CND_PACKAGE_NAME_Release=17bstorefrontv5.tar
-CND_PACKAGE_PATH_Release=dist/Release/Cygwin-Windows/package/17bstorefrontv5.tar
+CND_PACKAGE_NAME_Release=17bstorefrontv6.tar
+CND_PACKAGE_PATH_Release=dist/Release/Cygwin-Windows/package/17bstorefrontv6.tar
 #
 # include compiler specific variables
 #

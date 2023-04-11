@@ -144,7 +144,8 @@ int main(int argc, char** argv) {
     //            cin >> quantity;
     //            cin.ignore();
     //            removeFromCart(cart, items, itemName, quantity);
-    //        } else if (customerInput == 5){
+    //        } else if (customerInput == 5) {
+    //            setCart(customer, cart);
     //            writeCustomerInformation(customer);
     //        }
     //        cout << "Enter next input: ";
