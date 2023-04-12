@@ -9,19 +9,19 @@ CND_DISTDIR=dist
 # Debug configuration
 CND_PLATFORM_Debug=Cygwin-Windows
 CND_ARTIFACT_DIR_Debug=dist/Debug/Cygwin-Windows
-CND_ARTIFACT_NAME_Debug=17b_storefrontv6
-CND_ARTIFACT_PATH_Debug=dist/Debug/Cygwin-Windows/17b_storefrontv6
+CND_ARTIFACT_NAME_Debug=17b_storefrontv11
+CND_ARTIFACT_PATH_Debug=dist/Debug/Cygwin-Windows/17b_storefrontv11
 CND_PACKAGE_DIR_Debug=dist/Debug/Cygwin-Windows/package
-CND_PACKAGE_NAME_Debug=17bstorefrontv6.tar
-CND_PACKAGE_PATH_Debug=dist/Debug/Cygwin-Windows/package/17bstorefrontv6.tar
+CND_PACKAGE_NAME_Debug=17bstorefrontv11.tar
+CND_PACKAGE_PATH_Debug=dist/Debug/Cygwin-Windows/package/17bstorefrontv11.tar
 # Release configuration
 CND_PLATFORM_Release=Cygwin-Windows
 CND_ARTIFACT_DIR_Release=dist/Release/Cygwin-Windows
-CND_ARTIFACT_NAME_Release=17b_storefrontv6
-CND_ARTIFACT_PATH_Release=dist/Release/Cygwin-Windows/17b_storefrontv6
+CND_ARTIFACT_NAME_Release=17b_storefrontv11
+CND_ARTIFACT_PATH_Release=dist/Release/Cygwin-Windows/17b_storefrontv11
 CND_PACKAGE_DIR_Release=dist/Release/Cygwin-Windows/package
-CND_PACKAGE_NAME_Release=17bstorefrontv6.tar
-CND_PACKAGE_PATH_Release=dist/Release/Cygwin-Windows/package/17bstorefrontv6.tar
+CND_PACKAGE_NAME_Release=17bstorefrontv11.tar
+CND_PACKAGE_PATH_Release=dist/Release/Cygwin-Windows/package/17bstorefrontv11.tar
 #
 # include compiler specific variables
 #

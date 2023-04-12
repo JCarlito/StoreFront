@@ -4,7 +4,7 @@
  *
  * Created on April 10, 2023, 2:06 PM
  * Purpose: Create a simple interface with no files and completely procedural
- * Version: 9, Improve customer file to be able to update sales information
+ * Version: 10, Improve customer file to be able to update sales information
  */
 
 #include "StoreFront.h"
