@@ -31,6 +31,7 @@ int main(int argc, char** argv) {
     signInInterface(interface);
     if (interface.getAdminStatus()) {
         cout << "Admin User" << endl;
+        Admin admin(interface.getUsername());
     } else {
         CustomerClass customer(interface.getUsername());
         string itemName;
