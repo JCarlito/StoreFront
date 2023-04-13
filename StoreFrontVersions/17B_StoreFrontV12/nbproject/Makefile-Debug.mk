@@ -35,6 +35,11 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
+	${OBJECTDIR}/Admin.o \
+	${OBJECTDIR}/Customer.o \
+	${OBJECTDIR}/Inventory.o \
+	${OBJECTDIR}/SalesRecord.o \
+	${OBJECTDIR}/ShoppingCart.o \
 	${OBJECTDIR}/SignIn.o \
 	${OBJECTDIR}/main.o
 
@@ -57,11 +62,36 @@ LDLIBSOPTIONS=
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}
-	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/17b_storefrontv8.exe
+	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/17b_storefrontv12.exe
 
-${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/17b_storefrontv8.exe: ${OBJECTFILES}
+${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/17b_storefrontv12.exe: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
-	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/17b_storefrontv8 ${OBJECTFILES} ${LDLIBSOPTIONS}
+	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/17b_storefrontv12 ${OBJECTFILES} ${LDLIBSOPTIONS}
+
+${OBJECTDIR}/Admin.o: Admin.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.c) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Admin.o Admin.cpp
+
+${OBJECTDIR}/Customer.o: Customer.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.c) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Customer.o Customer.cpp
+
+${OBJECTDIR}/Inventory.o: Inventory.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.c) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Inventory.o Inventory.cpp
+
+${OBJECTDIR}/SalesRecord.o: SalesRecord.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.c) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/SalesRecord.o SalesRecord.cpp
+
+${OBJECTDIR}/ShoppingCart.o: ShoppingCart.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.c) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ShoppingCart.o ShoppingCart.cpp
 
 ${OBJECTDIR}/SignIn.o: SignIn.cpp
 	${MKDIR} -p ${OBJECTDIR}
