@@ -37,7 +37,6 @@ int main(int argc, char** argv) {
     signInInterface(interface);
     if (interface.getAdminStatus()) {
         Admin admin(interface.getUsername());
-        adminInterface(admin);
         int adminInput;
         char adminMenuInput;
         admin.displayAdminMenu();
