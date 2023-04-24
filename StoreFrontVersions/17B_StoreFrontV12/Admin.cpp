@@ -13,11 +13,9 @@ void Admin::displayInventory() {
     cout << endl;
     cout << fixed << setprecision(2);
     for (const auto& item : inventory) {
-        if (item.status) {
-            cout << setw(38) << item.itemName;
-            cout << " $" << setw(36) << item.cost;
-            cout << setw(37) << item.stock << endl;
-        }
+        cout << setw(38) << item.itemName;
+        cout << " $" << setw(36) << item.cost;
+        cout << setw(37) << item.stock << endl;
     }
     cout << endl;
 }
