@@ -1,0 +1,15 @@
+<map id="checkout" name="checkout">
+<area shape="rect" id="node1" title=" " alt="" coords="5,80,80,105"/>
+<area shape="rect" id="node2" href="$class_customer_class.html#a97dc5ea49a3288fd715a13059c9cd162" title=" " alt="" coords="139,5,332,31"/>
+<area shape="rect" id="node3" href="$class_customer_class.html#a66c4ee34bcb395fa03a04370924207d1" title=" " alt="" coords="128,55,343,80"/>
+<area shape="rect" id="node5" href="$class_customer_class.html#a3379e0d6367fc09d39929bee300739c4" title=" " alt="" coords="131,104,340,129"/>
+<area shape="rect" id="node8" href="$class_sales_record.html#a35bb092be0ee27b7d8c34f96e0551046" title=" " alt="" coords="142,195,329,235"/>
+<area shape="rect" id="node4" href="$class_shopping_cart.html#a40db6fb041da1eeef520a72deae28586" title=" " alt="" coords="401,55,605,80"/>
+<area shape="rect" id="node6" href="$class_shopping_cart.html#a3c788d2963e079cc3bdbc09c969bd6d0" title=" " alt="" coords="403,104,602,129"/>
+<area shape="rect" id="node7" href="$class_inventory_class.html#adb36ff05f648cd18464de3b04ea02a5c" title=" " alt="" coords="663,104,855,129"/>
+<area shape="rect" id="node9" href="$class_sales_record.html#a0ece242bb25ba0b7b2975c1548374cd4" title=" " alt="" coords="391,153,615,179"/>
+<area shape="rect" id="node11" href="$class_sales_record.html#a1116a830cea545f7f011ec451f02c654" title=" " alt="" coords="413,203,593,228"/>
+<area shape="rect" id="node12" href="$class_sales_record.html#aff381983aae21bb168147e5b98c0359a" title=" " alt="" coords="410,253,595,293"/>
+<area shape="rect" id="node13" href="$class_sales_record.html#a17f7f12c4999229b928086bdd97222b6" title=" " alt="" coords="409,317,596,357"/>
+<area shape="rect" id="node10" href="$class_sales_record.html#a189ce011ef857614f6c6317ed33fb714" title=" " alt="" coords="672,153,845,179"/>
+</map>

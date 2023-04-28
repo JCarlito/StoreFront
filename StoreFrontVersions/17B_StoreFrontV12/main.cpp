@@ -30,6 +30,12 @@ void displayUserInformation(Admin& admin);
 void changePassword(Admin& admin);
 void changeStatus(Admin& admin);
 
+/*
+ * ADMIN ACCOUNT INFORMATION:
+ * USERNAME: mlehr
+ * PASSWORD: mlehr
+ */
+
 int main(int argc, char** argv) {
     SignIn interface;
     SalesRecord salesInfo;

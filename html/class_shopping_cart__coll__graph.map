@@ -1,0 +1,5 @@
+<map id="ShoppingCart" name="ShoppingCart">
+<area shape="rect" id="node1" title=" " alt="" coords="87,468,254,839"/>
+<area shape="rect" id="node2" href="$struct_cart.html" title=" " alt="" coords="5,137,147,273"/>
+<area shape="rect" id="node3" href="$class_inventory_class.html" title=" " alt="" coords="171,5,362,405"/>
+</map>
