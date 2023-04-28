@@ -1,0 +1,16 @@
+<map id="StoreFront.h" name="StoreFront.h">
+<area shape="rect" id="node1" title=" " alt="" coords="407,5,501,31"/>
+<area shape="rect" id="node2" href="$_admin_8h.html" title=" " alt="" coords="419,79,489,104"/>
+<area shape="rect" id="node4" href="$main_8cpp.html" title=" " alt="" coords="489,299,563,324"/>
+<area shape="rect" id="node5" href="$_customer_8h.html" title=" " alt="" coords="12,225,101,251"/>
+<area shape="rect" id="node7" href="$_inventory_8h.html" title=" " alt="" coords="244,79,328,104"/>
+<area shape="rect" id="node9" href="$_shopping_cart_8h.html" title=" " alt="" coords="95,152,205,177"/>
+<area shape="rect" id="node11" href="$_sales_record_8h.html" title=" " alt="" coords="523,79,630,104"/>
+<area shape="rect" id="node13" href="$_sign_in_8h.html" title=" " alt="" coords="739,79,809,104"/>
+<area shape="rect" id="node3" href="$_admin_8cpp.html" title=" " alt="" coords="404,152,488,177"/>
+<area shape="rect" id="node6" href="$_customer_8cpp.html" title=" " alt="" coords="5,299,108,324"/>
+<area shape="rect" id="node8" href="$_inventory_8cpp.html" title=" " alt="" coords="281,152,379,177"/>
+<area shape="rect" id="node10" href="$_shopping_cart_8cpp.html" title=" " alt="" coords="177,225,302,251"/>
+<area shape="rect" id="node12" href="$_sales_record_8cpp.html" title=" " alt="" coords="615,152,736,177"/>
+<area shape="rect" id="node14" href="$_sign_in_8cpp.html" title=" " alt="" coords="811,152,894,177"/>
+</map>

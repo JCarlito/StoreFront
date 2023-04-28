@@ -1,0 +1,11 @@
+<map id="removeItem" name="removeItem">
+<area shape="rect" id="node1" title=" " alt="" coords="5,129,93,155"/>
+<area shape="rect" id="node2" href="$class_customer_class.html#a19930861cf6de7b6da80cf0f3c2331b8" title=" " alt="" coords="141,129,356,155"/>
+<area shape="rect" id="node3" href="$class_shopping_cart.html#a4f17d9a0b86d1e5cdeaa45c98d2a49a0" title=" " alt="" coords="404,129,607,155"/>
+<area shape="rect" id="node4" href="$class_inventory_class.html#a3212c98f09f0185d344931c4c00ead4b" title=" " alt="" coords="655,5,865,31"/>
+<area shape="rect" id="node5" href="$class_inventory_class.html#a81e396bb821e5750f2d8746a55e9ab05" title=" " alt="" coords="681,55,839,80"/>
+<area shape="rect" id="node6" href="$class_inventory_class.html#a6459741193c6ea55f7d8c1976ab94a95" title=" " alt="" coords="665,104,855,129"/>
+<area shape="rect" id="node7" href="$class_inventory_class.html#a609dfab3a51ddd3433e0672c8614aab8" title=" " alt="" coords="675,153,845,179"/>
+<area shape="rect" id="node8" href="$class_inventory_class.html#a9d2a261bc5d8c497d4d8ae64d0f85654" title=" " alt="" coords="665,203,855,243"/>
+<area shape="rect" id="node9" href="$class_inventory_class.html#af0dc3f311c25c3b97b64b49795c22264" title=" " alt="" coords="667,267,853,307"/>
+</map>
